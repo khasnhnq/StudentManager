@@ -1,4 +1,4 @@
-INSERT INTO students (id, name, age, email, gender) VALUES
-(1, 'Nguyen Van A', 20, 'a@gmail.com', 'Nam'),
-(2, 'Tran Thi B', 21, 'b@gmail.com', 'Nu'),
-(3, 'Le Van C', 19, 'c@gmail.com', 'Nam');
+INSERT INTO students (name, age, email, gender) VALUES
+('Nguyễn Văn A', 20, 'a@gmail.com', 'Nam'),
+('Trần Thị B', 21, 'b@gmail.com', 'Nữ'),
+('Lê Văn C', 19, 'c@gmail.com', 'Nam');
