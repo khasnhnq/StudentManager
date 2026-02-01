@@ -18,7 +18,7 @@ public class SecurityConfig {
         http
             .authorizeHttpRequests(auth -> auth
                 // PUBLIC
-                .requestMatchers("/login", "/css/**", "/js/**").permitAll()
+                .requestMatchers("/login**", "/css/**", "/js/**").permitAll()
 
                 // USER + ADMIN ĐƯỢC XEM
                 .requestMatchers(
@@ -41,6 +41,7 @@ public class SecurityConfig {
             .formLogin(form -> form
                 .loginPage("/login")
                 .defaultSuccessUrl("/students", true)
+                .failureUrl("/login?error=true")
                 .permitAll()
             )
             .logout(logout -> logout
