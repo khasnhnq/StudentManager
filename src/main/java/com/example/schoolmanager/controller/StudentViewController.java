@@ -29,7 +29,7 @@ public class StudentViewController {
 
     // 2. Chi tiết sinh viên
     @GetMapping("/{id}")
-    public String detail(@PathVariable int id, Model model) {
+    public String detail(@PathVariable String id, Model model) {
         model.addAttribute("student", service.getStudentById(id));
         return "student-detail";
     }
@@ -42,7 +42,7 @@ public class StudentViewController {
     }
 
     @GetMapping("/delete/{id}")
-    public String delete(@PathVariable int id) {
+    public String delete(@PathVariable String id) {
         service.deleteStudent(id);
         return "redirect:/students";
     }
@@ -61,7 +61,7 @@ public class StudentViewController {
 
     // HIỂN THỊ FORM SỬA
     @GetMapping("/edit/{id}")
-    public String editForm(@PathVariable int id, Model model) {
+    public String editForm(@PathVariable String id, Model model) {
         model.addAttribute("student", service.getStudentById(id));
         return "student-edit";
     }

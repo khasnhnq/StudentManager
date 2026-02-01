@@ -18,7 +18,7 @@ public class StudentService {
         return repository.save(student);
     }
 
-    public void deleteStudent(int id) {
+    public void deleteStudent(String id) {
         repository.deleteById(id);
     }
 
@@ -30,7 +30,7 @@ public class StudentService {
         return repository.findAll();
     }
 
-    public Student getStudentById(int id) {
+    public Student getStudentById(String id) {
         return repository.findById(id).orElse(null);
     }
 

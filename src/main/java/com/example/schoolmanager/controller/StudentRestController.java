@@ -29,7 +29,7 @@ public class StudentRestController {
     // DELETE STUDENT (ADMIN ONLY)
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable int id) {
+    public void delete(@PathVariable String id) {
         service.deleteStudent(id);
     }
 }
