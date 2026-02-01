@@ -1,5 +1,7 @@
 package com.example.schoolmanager.controller;
 
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,7 +31,7 @@ public class StudentViewController {
 
     // 2. Chi tiết sinh viên
     @GetMapping("/{id}")
-    public String detail(@PathVariable String id, Model model) {
+    public String detail(@PathVariable UUID id, Model model) {
         model.addAttribute("student", service.getStudentById(id));
         return "student-detail";
     }
@@ -42,7 +44,7 @@ public class StudentViewController {
     }
 
     @GetMapping("/delete/{id}")
-    public String delete(@PathVariable String id) {
+    public String delete(@PathVariable UUID id) {
         service.deleteStudent(id);
         return "redirect:/students";
     }
@@ -61,7 +63,7 @@ public class StudentViewController {
 
     // HIỂN THỊ FORM SỬA
     @GetMapping("/edit/{id}")
-    public String editForm(@PathVariable String id, Model model) {
+    public String editForm(@PathVariable UUID id, Model model) {
         model.addAttribute("student", service.getStudentById(id));
         return "student-edit";
     }
