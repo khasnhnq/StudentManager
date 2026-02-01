@@ -3,8 +3,8 @@ package com.example.schoolmanager.model;
 import java.util.UUID;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 
 @Entity
@@ -12,8 +12,7 @@ import jakarta.persistence.Table;
 public class Student {
 
     @Id
-    @GeneratedValue
-    private UUID id;   // UUID chứ KHÔNG phải String
+    private UUID id;
 
     private String name;
     private Integer age;
@@ -21,6 +20,13 @@ public class Student {
     private String gender;
 
     public Student() {}
+
+    @PrePersist
+    public void generateId() {
+        if (this.id == null) {
+            this.id = UUID.randomUUID();
+        }
+    }
 
     // ===== GETTER & SETTER =====
     public UUID getId() {
